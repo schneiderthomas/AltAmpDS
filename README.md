@@ -230,7 +230,7 @@ as appropriate
 ###Extra
 
 In this repository there is a folder called ART, in here you will find shell that can be used to create
-artifical FASTQ files similar to an ampliconDS run.  ART version ____ was used in these scripts.
+artifical FASTQ files similar to an ampliconDS run.  ART version ChocolateCherryCake-03-19-2015 was used in these scripts.
 
 Download the latest ART program [here](https://www.niehs.nih.gov/research/resources/software/biostatistics/art/).
 

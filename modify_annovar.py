@@ -51,7 +51,7 @@ def main(argv):
     ##############################################################
     file_read = csv.reader(open(inputfile, 'r'), delimiter='\t')
     #assuming annovar has otherinfo
-    #annovar is stupid and doesn't label the otherinfo columns and thus need to add or pandas will explode
+    #annovar doesn't label the otherinfo columns and thus need to add or pandas will crash
     row1=len(file_read.next())
     row2=len(file_read.next())
     difference=row2-row1

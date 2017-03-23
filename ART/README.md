@@ -1,4 +1,4 @@
-#ART Folder
+# ART Folder
 
 example bash script to generate artifical Trusight Tumor 26 fastq files
 

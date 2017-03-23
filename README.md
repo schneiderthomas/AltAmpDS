@@ -1,12 +1,12 @@
 # AltAmpDS
 Alternative Bioinformatic Pipeline for AmpliconDS
 
-This program is designed to take run through a NextSeq or MiSeq run directory looking for 
+This program is designed to run through a NextSeq or MiSeq run directory looking for 
 fastq files located in ${current directory or specified directory}/Data/Intensities/BaseCalls/ 
 
 The main script file to run is runAltPipeline.sh.
 
-##example usage
+## example usage
 ```bash
 sh /u01/tom_pipeline/final_CMP26pipeline/runAltPipeline -h #to get help and see the different parameters
 sh /u01/tom_pipeline/final_CMP26pipeline/runAltPipeline -s /u01/tom_pipeline/Bioinformatics/trusight_tumor_pipeline.sh > output_alt_pipeline_run.txt 2>&1&
@@ -39,7 +39,7 @@ as a home_dir was not specified** <br />
 
 
 
-##Parameters
+## Parameters
 PIPELINLE_DIR, this variable needs to be set in ./.bashrc file
 ```bash
 cd ~
@@ -55,7 +55,7 @@ active_case_limit - integer: number of cases to process at one time, default is 
 nohup sh $PIPELINE_DIR/runAltPipeline.sh -threads 25 -memory 16 -active_case_limit 8 > output_alt_pipeline_run.txt 2>&1&'
 ```
 
-##Dependencies
+## Dependencies
 
 bash
 -variables need to be set in ~./.bashrc file
@@ -114,38 +114,38 @@ download the git repository
 gitclone https://github.com/schneiderthomas/AltAmpDs
 ```
 
-###Python Dependencies
+### Python Dependencies
 
-####pip
+#### pip
 ```bash
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm #red-hat
 sudo yum install epel-release-7.noarch.rpm #red-hat
 sudo yum install python-pip #red-hat
 sudo apt-get install python-pip #ubuntu
 ```
-####biopython (1.66)
+#### biopython (1.66)
 ```bash
 sudo pip install biopython==1.66
 ```
-####pysam (0.8.4)
+#### pysam (0.8.4)
 ```bash
 sudo pip install pysam==0.8.4
 ```
-####pyvcf (0.6.7)
+#### pyvcf (0.6.7)
 ```bash
 sudo pip install pyvcf==0.6.7
 ```
-####Pandas (0.16.2)
+#### Pandas (0.16.2)
 ```bash
 sudo pip install pandas==0.16.2
 ```
-####regex (2015.3.18)
+#### regex (2015.3.18)
 ```bash 
 sudo pip install regex==2015.3.18
 ```
 
-###Linux/Shell Dependencies
-####Zenity
+### Linux/Shell Dependencies
+#### Zenity
 to display dialog boxes from shell script (to let tech know that processing is done)
 ```bash
 sudo yum install zenity #red-hat
@@ -177,7 +177,7 @@ sudo dpkg -i bcl2fastq2-v2.17.1.14-Linux-x86_64.deb
 
 
 
-##Major Program dependencies
+## Major Program dependencies
 these programs need to be downloaded and/or compiled and their resulting directories need to be placed in this 
 directory, a more recent version may be used but there may be some compatibility issues with the pipeline as it is
 
@@ -220,14 +220,14 @@ to
 $sc = "annotate_variation.pl -geneanno -buildver $buildver -dbtype $protocol -splicing_threshold 5 -hgvs -outfile $tempfile.$protocol -exonsort $queryfile $dbloc";
 ```
 
-#GATK
+# GATK
 version 3.5 is being used for this pipeline
 get the latest software [here](https://software.broadinstitute.org/gatk/download/)
 if download version higher than 3.5, need to change line 34 in amplicon_ds_pipeline.sh
 as appropriate
 
 
-###Extra
+### Extra
 
 In this repository there is a folder called ART, in here you will find shell that can be used to create
 artifical FASTQ files similar to an ampliconDS run.  ART version ChocolateCherryCake-03-19-2015 was used in these scripts.
@@ -236,20 +236,20 @@ Download the latest ART program [here](https://www.niehs.nih.gov/research/resour
 
 
 
-##Reference Files
-###hg19
+## Reference Files
+### hg19
 will be downloaded if use download_dependencies.sh script
 
-##ANNOVAR reference files
+## ANNOVAR reference files
 will download_dependencies.sh install clinvar, cosmic, exac, snp and 1000g
 in the annovar directory, see download_dependencies.sh if curious
 
 
 
-####NOTES ON MAJOR FILES
+#### NOTES ON MAJOR FILES
 
 
-#####runAltPipeline.sh
+##### runAltPipeline.sh
 
 -the shell script which runs through the current directory (unless given) and feeds files to the pipeline shell script (location can be specified with -s command but default parameters are at the 
 top of the shell script which can be changed if one moves the directory <br />

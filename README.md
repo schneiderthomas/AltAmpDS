@@ -160,7 +160,7 @@ sudo apt-get install xterm xorg dbus #ubuntu
 
 ```
 
-#bcl2fastq (v2.17)
+bcl2fastq (v2.17)
 to convert files from bcl to fastq files
 ```bash
 #optional, already provided as zip
@@ -254,7 +254,7 @@ in the annovar directory, see download_dependencies.sh if curious
 -the shell script which runs through the current directory (unless given) and feeds files to the pipeline shell script (location can be specified with -s command but default parameters are at the 
 top of the shell script which can be changed if one moves the directory <br />
 
-ASSUMPTIONS: <br />
+# ASSUMPTIONS: <br />
 - the directory has a folder structure <br />
  BaseDirectory -> Data -> Intensities -> BaseCalls <br />
  will exit if this is not seen <br />

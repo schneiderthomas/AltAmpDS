@@ -206,11 +206,11 @@ sh download_dependencies.sh
 ```
 
 
-Please note annovar and GATK have license agreements must be accepted before you download them.
+Please note annovar and GATK have license agreements must be accepted before you download them and therefore they cannot be downloaded using the above script.
 Instructions to download these files are below:
 
 #annovar
-please download annovar, version  2014-11-12 was used originally, to download Annovar click [here](http://www.openbioinformatics.org/annovar/annovar_download_form.php).  After downloading annovar place the annovar folder entitled "annovar" in the current directory
+please download annovar, version  2014-11-12 was used originally (therefore is the preferred version to ensure compatibility), to download Annovar click [here](http://www.openbioinformatics.org/annovar/annovar_download_form.php).  After downloading annovar place the annovar folder entitled "annovar" in the current directory
 Note: the original splicing threshold for annovar is to 2, this can be modified if one goes to file table_annovar.pl and modifies the line 
 ```python
 $sc = "annotate_variation.pl -geneanno -buildver $buildver -dbtype $protocol -hgvs -outfile $tempfile.$protocol -exonsort $queryfile $dbloc";

@@ -8,8 +8,8 @@ The main script file to run is runAltPipeline.sh.
 
 ## example usage
 ```bash
-sh /<AltAmpDS directory>/runAltPipeline -h #to get help and see the different parameters
-sh /<AltAmpDS directory>/runAltPipeline -s /<AltAmpDS directory>/trusight_tumor_pipeline.sh > output_alt_pipeline_run.txt 2>&1&
+bash /<AltAmpDS directory>/runAltPipeline -h #to get help and see the different parameters
+bash /<AltAmpDS directory>/runAltPipeline -s /<AltAmpDS directory>/trusight_tumor_pipeline.sh > output_alt_pipeline_run.txt 2>&1&
 nohup sh /<AltAmpDS directory>/runAltPipeline.sh -debugging true -validation true> output_alt_pipeline_run.txt 2>&1&
 ```
 
@@ -21,8 +21,8 @@ vim ./.bashrc
 in the bashrc file under the # User specific aliases and functions section (modify as appropriate for your machine)<br />
 
 ```
-alias runAltPipeline='nohup sh /<AltAmpDS directory>/runAltPipeline.sh > output_alt_pipeline_run.txt 2>&1&'
-alias debugRunAltPipeline='nohup sh /<AltAmpDS directory>/runAltPipeline.sh -debugging true -validation true> output_alt_pipeline_run.txt 2>&1&'
+alias runAltPipeline='nohup bash /<AltAmpDS directory>/runAltPipeline.sh > output_alt_pipeline_run.txt 2>&1&'
+alias debugRunAltPipeline='nohup bash /<AltAmpDS directory>/runAltPipeline.sh -debugging true -validation true> output_alt_pipeline_run.txt 2>&1&'
 alias validationRunAltPipeline='nohup sh /<AltAmpDS directory>/runAltPipeline.sh -validation true > output_alt_pipeline_run.txt 2>&1&'
 
 ```
@@ -57,12 +57,18 @@ nohup sh $PIPELINE_DIR/runAltPipeline.sh -threads 25 -memory 16 -active_case_lim
 
 ## Dependencies
 
+There is a script file called download_dependencies.sh that will help you download all of these programs if running on ubuntu,
+similar code for Red-hat is commented out which can be removed if necessary.  Please note that this file will NOT download GATK and Annovar as those programs have license agreements 
+to launch the script in the terminal type, this simple script will download all dependencies in the directory it currently resides in
+```bash
+bash download_dependencies.sh
+```
+
 bash
 -variables need to be set in ~./.bashrc file
 -some of the code uses bash syntax so need to make sure bash installed on linux distribution
--may need to call as `bash runAltPipeline.sh` instead of `sh runAltPipeline.sh` if there are problems
 
-To install, proceed to install in the order below (this 
+To install, proceed to install in the order below
 
 git 
 ```bash
@@ -199,11 +205,6 @@ CoverageQC - for debugging <br />
 bedtools2 -> Version 2.19.1 <br />
 Trimmomatic 0.33 <br />
 
-There is a script file called download_dependencies.sh (should be run after running the commands above) that will help you download all of these programs.
-to launch the script in the terminal type
-```bash
-sh download_dependencies.sh
-```
 
 
 Please note annovar and GATK have license agreements must be accepted before you download them and therefore they cannot be downloaded using the above script.

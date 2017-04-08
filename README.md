@@ -8,9 +8,9 @@ The main script file to run is runAltPipeline.sh.
 
 ## example usage
 ```bash
-sh /u01/tom_pipeline/final_CMP26pipeline/runAltPipeline -h #to get help and see the different parameters
-sh /u01/tom_pipeline/final_CMP26pipeline/runAltPipeline -s /u01/tom_pipeline/Bioinformatics/trusight_tumor_pipeline.sh > output_alt_pipeline_run.txt 2>&1&
-nohup sh /u01/tom_pipeline/final_CMP26pipeline/runAltPipeline.sh -debugging true -validation true> output_alt_pipeline_run.txt 2>&1&
+sh /<AltAmpDS directory>/runAltPipeline -h #to get help and see the different parameters
+sh /<AltAmpDS directory>/runAltPipeline -s /<AltAmpDS directory>/trusight_tumor_pipeline.sh > output_alt_pipeline_run.txt 2>&1&
+nohup sh /<AltAmpDS directory>/runAltPipeline.sh -debugging true -validation true> output_alt_pipeline_run.txt 2>&1&
 ```
 
 It is highlest suggested to make script alias to make running the pipeline easier
@@ -18,15 +18,15 @@ It is highlest suggested to make script alias to make running the pipeline easie
 cd ~
 vim ./.bashrc
 ```
-in the bashrc file under the # User specific aliases and functions section <br />
+in the bashrc file under the # User specific aliases and functions section (modify as appropriate for your machine)<br />
 
 ```
-alias runAltPipeline='nohup sh /u01/tom_pipeline/final_CMP26pipeline/runAltPipeline.sh > output_alt_pipeline_run.txt 2>&1&'
-alias debugRunAltPipeline='nohup sh /u01/tom_pipeline/final_CMP26pipeline/runAltPipeline.sh -debugging true -validation true> output_alt_pipeline_run.txt 2>&1&'
-aliad validationRunAltPipeline='nohup sh /u01/tom_pipeline/final_CMP26pipeline/runAltPipeline.sh -validation true > output_alt_pipeline_run.txt 2>&1&'
+alias runAltPipeline='nohup sh /<AltAmpDS directory>/runAltPipeline.sh > output_alt_pipeline_run.txt 2>&1&'
+alias debugRunAltPipeline='nohup sh /<AltAmpDS directory>/runAltPipeline.sh -debugging true -validation true> output_alt_pipeline_run.txt 2>&1&'
+alias validationRunAltPipeline='nohup sh /<AltAmpDS directory>/runAltPipeline.sh -validation true > output_alt_pipeline_run.txt 2>&1&'
 
 ```
-where runAltPipeline is the default, debugRunAltPipeline and validationRunAltPipeline do not get rid of temporary files <br />
+where runAltPipeline is the default, debugRunAltPipeline and validationRunAltPipeline do not get rid of temporary files, debugRunAltPipeline has less restrictions region depth (to use when testing pipeline very small artifical fastqs) <br />
 
 **Note:when running the above code the user needs to be in the top directory of a NextSeq or MiSeq folder
 as a home_dir was not specified** <br />

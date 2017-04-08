@@ -26,7 +26,7 @@ alias debugRunAltPipeline='nohup sh /<AltAmpDS directory>/runAltPipeline.sh -deb
 alias validationRunAltPipeline='nohup sh /<AltAmpDS directory>/runAltPipeline.sh -validation true > output_alt_pipeline_run.txt 2>&1&'
 
 ```
-where runAltPipeline is the default, debugRunAltPipeline and validationRunAltPipeline do not get rid of temporary files, debugRunAltPipeline has less restrictions region depth (to use when testing pipeline very small artifical fastqs) <br />
+where runAltPipeline is the default, debugRunAltPipeline and validationRunAltPipeline do not get rid of temporary files, debugRunAltPipeline has less restrictions region depth (to use when testing pipeline with very small artifical fastqs) <br />
 
 **Note:when running the above code the user needs to be in the top directory of a NextSeq or MiSeq folder
 as a home_dir was not specified** <br />

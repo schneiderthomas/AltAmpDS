@@ -58,8 +58,7 @@ nohup sh $PIPELINE_DIR/runAltPipeline.sh -threads 25 -memory 16 -active_case_lim
 ## Dependencies
 
 There is a script file called download_dependencies.sh that will help you download all of these programs if running on ubuntu,
-similar code for Red-hat is commented out which can be removed if necessary.  Please note that this file will NOT download GATK and Annovar as those programs have license agreements 
-to launch the script in the terminal type, this simple script will download all dependencies in the directory it currently resides in
+similar code for Red-hat is commented out which can be removed if necessary.  Please note that this file will NOT download GATK and Annovar as those programs have license agreements. To launch the script in the terminal type, this simple script will download all dependencies in the directory it currently resides in
 ```bash
 bash download_dependencies.sh
 ```

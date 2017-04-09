@@ -7,24 +7,10 @@ DIR=$PWD
 #download dependencies calls for for debian environments, calls will need to be modified if
 #working with red-hat
 
-#if not done (ubuntu version, see readme for red-hat equivalent
-#sudo apt-get install git #ubuntu
-#sudo apt-get install unzip #ubuntu
-#sudo apt-get install openjdk-8-jdk #Ubuntu
-#sudo apt-get install wget #Ubuntu
-#sudo apt-get install gcc #ubuntu
-#sudo yum install python-dev #Ubuntu
-#sudo apt-get install zlib1g-dev #ubuntu
-#sudo apt-get install g++ #ubuntu
-#sudo apt-get install python-pip
-#sudo pip install biopython==1.66
-#sudo pip install pysam==0.8.4
-#sudo pip install pyvcf==0.6.7
-#sudo pip install pandas==0.16.2
-#sudo pip install regex==2015.3.18
-#sudo apt-get install zenity
-#sudo apt-get install xterm xorg dbus #ubuntu
-#sudo apt-get install alien dpkg-dev debhelper build-essential #needed for unbuntu
+#if not done (ubuntu version, see readme for red-hat equivalent)
+sudo apt-get -y install git unzip openjdk-8-jdk wget gcc python-dev zlib1g-dev g++ python-pip zenity xterm xorg dbus alien dpkg-dev debhelper build-essential  #ubuntu
+sudo pip install biopython==1.66 pysam==0.8.4 pyvcf==0.6.7 pandas==0.16.2 regex==2015.3.18
+
 #must manually download ANNOVAR and GATK after accepting license aggrement
 
 #install freebayes

@@ -14,47 +14,47 @@ sudo pip install biopython==1.66 pysam==0.8.4 pyvcf==0.6.7 pandas==0.16.2 regex=
 #must manually download ANNOVAR and GATK after accepting license aggrement
 
 #install freebayes
-#git clone --recursive git://github.com/ekg/freebayes.git
-#cd $DIR/freebayes
-#make
+git clone --recursive git://github.com/ekg/freebayes.git
+cd $DIR/freebayes
+make
 
 cd $DIR
 
 #install bedtools
-#wget https://github.com/arq5x/bedtools2/releases/download/v2.19.1/bedtools-2.19.1.tar.gz
+wget https://github.com/arq5x/bedtools2/releases/download/v2.19.1/bedtools-2.19.1.tar.gz
 
-#tar -zxvf bedtools-2.19.1.tar.gz
-#mv bedtools2-2.19.1 bedtools2
-#rm bedtools-2.19.1.tar.gz
-#cd $DIR/bedtools
-#make
+tar -zxvf bedtools-2.19.1.tar.gz
+mv bedtools2-2.19.1 bedtools2
+rm bedtools-2.19.1.tar.gz
+cd $DIR/bedtools
+make
 
 cd $DIR
 
 
 #install samtools
-#wget https://github.com/samtools/samtools/releases/download/1.2/samtools-1.2.tar.bz2
-#tar -vxjf samtools-1.2.tar.bz2
-#rm samtools-1.2.tar.bz2
-#cd samtools-1.2
-#make
+wget https://github.com/samtools/samtools/releases/download/1.2/samtools-1.2.tar.bz2
+tar -vxjf samtools-1.2.tar.bz2
+rm samtools-1.2.tar.bz2
+cd samtools-1.2
+make
 
 cd $DIR
 
 #install bcftools
-#wget https://github.com/samtools/bcftools/releases/download/1.2/bcftools-1.2.tar.bz2
-#tar -vxjf bcftools-1.2.tar.bz2
-#rm bcftools-1.2.tar.bz2
-#cd bcftools-1.2
-#make
+wget https://github.com/samtools/bcftools/releases/download/1.2/bcftools-1.2.tar.bz2
+tar -vxjf bcftools-1.2.tar.bz2
+rm bcftools-1.2.tar.bz2
+cd bcftools-1.2
+make
 
 cd $DIR
 
 #install bcl2fastq
-#wget 'ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/bcl2fastq/bcl2fastq2-v2.17.1.14-Linux-x86_64.zip'
-#unzip bcl2fastq2-v2.17.1.14-Linux-x86_64.zip
-#sudo alien bcl2fastq2-v2.17.1.14-Linux-x86_64.rpm
-#sudo dpkg -i bcl2fastq2_0v2.17.1.14-2_amd64.deb
+wget 'ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/bcl2fastq/bcl2fastq2-v2.17.1.14-Linux-x86_64.zip'
+unzip bcl2fastq2-v2.17.1.14-Linux-x86_64.zip
+sudo alien bcl2fastq2-v2.17.1.14-Linux-x86_64.rpm
+sudo dpkg -i bcl2fastq2_0v2.17.1.14-2_amd64.deb
 rm bcl2fastq2_0v2.17.1.14-2_amd64.deb
 rm bcl2fastq2-v2.17.1.14-Linux-x86_64.rpm
 rm bcl2fastq2-v2.17.1.14-Linux-x86_64.zip
@@ -62,11 +62,11 @@ rm bcl2fastq2-v2.17.1.14-Linux-x86_64.zip
 cd $DIR
 
 #install htslib
-#wget https://github.com/samtools/htslib/releases/download/1.2.1/htslib-1.2.1.tar.bz2
-#tar -vxjf htslib-1.2.1.tar.bz2
-#rm htslib-1.2.1.tar.bz2
-#cd htslib-1.2.1
-#make
+wget https://github.com/samtools/htslib/releases/download/1.2.1/htslib-1.2.1.tar.bz2
+tar -vxjf htslib-1.2.1.tar.bz2
+rm htslib-1.2.1.tar.bz2
+cd htslib-1.2.1
+make
 
 cd $DIR
 

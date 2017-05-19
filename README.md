@@ -3,6 +3,9 @@ Alternative Bioinformatic Pipeline for AmpliconDS
 
 This program is designed to run through a NextSeq or MiSeq run directory looking for 
 fastq files located in ${current directory or specified directory}/Data/Intensities/BaseCalls/ 
+Note: MiSeq folders start with the structure YYMMDD_machinename_NNNN  where machinename starts with a 'M'ex: 140729_M01382_0050_000000000-AAE8K
+and NextSeq folder start with the structure YYMMDD_machinename_NNNN  where machinename starts with a 'N'ex: 140729_N01382_0050_000000000-AAE8K
+AlAmpDS expects YYMMDD_machinename with machinename starting with 'M' or 'N'. Modification of code or changing the name of folders is necessary if run on hiseq
 
 The main script file to run is runAltPipeline.sh.
 
@@ -114,6 +117,12 @@ sudo yum install gcc-c++ #red-hat
 sudo apt-get install g++ #ubuntu
 ```
 
+curses 
+```bash
+sudo apt-get install libncurses5-dev libncursesw5-dev #ubuntu
+yum install ncurses-devel ncurses #red-hat
+```
+
 download the git repository
 ```bash
 gitclone https://github.com/schneiderthomas/AltAmpDs
@@ -201,7 +210,7 @@ varscan v2.3.9 <br />
 bwa 0.7.10 <br />
 vcflib v.1.0.0 <br />
 CoverageQC - for debugging <br />
-bedtools2 -> Version 2.19.1 <br />
+bedtools2 -> Version 2.26.0 <br />
 Trimmomatic 0.33 <br />
 
 

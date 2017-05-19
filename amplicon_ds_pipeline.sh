@@ -18,10 +18,10 @@ BEDTOOLS_DIR=$HOME_DIR/bedtools2/bin/
 TRIMMOMATIC_JAR=$HOME_DIR/Trimmomatic-0.33/trimmomatic-0.33.jar
 FASTQC_DIR=$HOME_DIR/FastQC
 PICARD_DIR=$HOME_DIR/picard
-SAMTOOLS_DIR=$HOME_DIR/samtools_1.2/bin
+SAMTOOLS_DIR=$HOME_DIR/samtools-1.2
 IGVTOOLS_JAR=$HOME_DIR/IGVTools/igvtools.jar
 VARSCAN_JAR=$HOME_DIR/VarScan/VarScan.v2.4.0.jar
-VCFLIB_HOME=$HOME_DIR/freebayes/vcflib/bin
+VCFLIB_HOME=$HOME_DIR/vcflib/bin
 FREEBAYES_HOME=$HOME_DIR/freebayes/bin
 BCFTOOLS_DIR=$HOME_DIR/bcftools-1.2/
 export PATH=$PATH:$HOME_DIR/htslib-1.2.1
@@ -260,7 +260,8 @@ fi
 
 python $HOME_DIR/create_bed_from_manifest.py -i $manifest_libA -o $HOME_DIR/amplicons_samtools_tmp_from_manifest_intervals.bed -e 1
 python $HOME_DIR/create_bed_from_manifest.py -i $manifest_libA -o $AMPLICONS_BED_VARIANTS -e 0
-$BEDTOOLS_DIR/bedtools merge -i $HOME_DIR/amplicons_samtools_tmp_from_manifest_intervals.bed > $AMPLICONS_BED_SAMTOOLS
+#$BEDTOOLS_DIR/bedtools merge -i $HOME_DIR/amplicons_samtools_tmp_from_manifest_intervals.bed > $AMPLICONS_BED_SAMTOOLS
+$BEDTOOLS_DIR/mergeBed -i $HOME_DIR/amplicons_samtools_tmp_from_manifest_intervals.bed > $AMPLICONS_BED_SAMTOOLS
 
 perl $FASTQC_DIR/fastqc -o $DIR $FQR1 &
 perl $FASTQC_DIR/fastqc -o $DIR $FQR2 &

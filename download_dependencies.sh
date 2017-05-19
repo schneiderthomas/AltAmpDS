@@ -8,26 +8,51 @@ DIR=$PWD
 #working with red-hat
 
 #if not done (ubuntu version, see readme for red-hat equivalent)
-sudo apt-get -y install git unzip openjdk-8-jdk wget gcc python-dev zlib1g-dev g++ python-pip zenity xterm xorg dbus alien dpkg-dev debhelper build-essential  #ubuntu
+sudo apt-get -y install git unzip openjdk-8-jdk wget python-dev zlib1g-dev python-pip zenity xterm xorg dbus alien dpkg-dev debhelper build-essential libncurses5-dev libncursesw5-dev #ubuntu
 sudo pip install biopython==1.66 pysam==0.8.4 pyvcf==0.6.7 pandas==0.16.2 regex==2015.3.18
 
 #must manually download ANNOVAR and GATK after accepting license aggrement
 
 #install freebayes
+#note for freebayes you will need to go to gcc 4.8
+#install new versions of gcc and g++
+sudo apt-get remove gcc g++
+sudo apt-get install gcc-4.8 g++-4.8
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.8
+
 git clone --recursive git://github.com/ekg/freebayes.git
 cd $DIR/freebayes
 make
-
 cd $DIR
 
-#install bedtools
-wget https://github.com/arq5x/bedtools2/releases/download/v2.19.1/bedtools-2.19.1.tar.gz
+sudo apt-get remove gcc-4.8 g++-4.8
 
-tar -zxvf bedtools-2.19.1.tar.gz
-mv bedtools2-2.19.1 bedtools2
-rm bedtools-2.19.1.tar.gz
-cd $DIR/bedtools
+
+sudo apt-get install gcc g++
+
+#install vcflib
+git clone --recursive git://github.com/vcflib/vcflib.git
+cd $DIR/vcflib
 make
+
+#install bedtools
+#wget https://github.com/arq5x/bedtools2/releases/download/v2.19.1/bedtools-2.19.1.tar.gz
+
+#tar -zxvf bedtools-2.19.1.tar.gz
+#mv bedtools2-2.19.1 bedtools2
+#rm bedtools-2.19.1.tar.gz
+#cd $DIR/bedtools2
+#make
+
+wget https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz
+
+tar -zxvf bedtools-2.26.0.tar.gz
+mv bedtools2-2.26.0 bedtools2
+rm bedtools-2.26.0.tar.gz
+cd $DIR/bedtools2
+make
+
+
 
 cd $DIR
 
@@ -66,8 +91,9 @@ wget https://github.com/samtools/htslib/releases/download/1.2.1/htslib-1.2.1.tar
 tar -vxjf htslib-1.2.1.tar.bz2
 rm htslib-1.2.1.tar.bz2
 cd htslib-1.2.1
+./configure
 make
-
+sudo make install
 cd $DIR
 
 
@@ -192,5 +218,8 @@ perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar snp138 humand
 perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar 1000g2015aug humandb/
 
 
+#optional ART
+wget https://www.niehs.nih.gov/research/resources/assets/docs/artbinchocolatecherrycake031915linux64tgz.tgz
+tar -zxvf artbinchocolatecherrycake031915linux64tgz.tgz 
 
 

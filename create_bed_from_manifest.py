@@ -41,7 +41,7 @@ def main(argv):
    inIntervalPortion=False
 
    new_file=open(outputbed,'w+')
-   new_file_write=csv.writer(new_file,delimiter='\t')
+   new_file_write=csv.writer(new_file,delimiter='\t',lineterminator='\n')
    subfactor=0
    addfactor=1
    if enlarge == '1':

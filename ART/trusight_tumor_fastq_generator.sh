@@ -3,9 +3,12 @@
 ##MODIFY AS NECESSARY FOR YOUR OWN FOLDER
 #illumina test examples
 #art=/home/tom/Documents/bioinformatics/ART/bin/art_illumina
-art=/home/tom/Documents/bioinformatics/art_bin_ChocolateCherryCake/art_illumina
-reference3=/home/tom/Documents/bioinformatics/ART/Testing/FPA_Complex_Mutations_1_thru_11.fa
-reference4=/home/tom/Documents/bioinformatics/ART/Testing/FPB_Complex_Mutations_1_thru_11.fa
+basedir=$(cd ../ && pwd)
+art=$basedir/art_bin_ChocolateCherryCake/art_illumina
+#reference1=$PWD/FPA_normal_with_mutations.fa
+#reference2=$PWD/FPB_normal_with_mutations.fa
+reference1=$PWD/FPA_normal.fa
+reference2=$PWD/FPB_normal.fa
 #################################
 
 
@@ -15,25 +18,44 @@ reference4=/home/tom/Documents/bioinformatics/ART/Testing/FPB_Complex_Mutations_
 #####
 ###DEPTH OF 10 TO MAKE REALLY SMALL FILE FOR PURPOSES OF DEBUGGING PIPELINE AS IT IS VERY
 ###FAST TO PROCESS
-#$art -i $reference3  -amp  -o ./Complex_Mutations_1_thru_11_small_S0_R -p -l 121 -f 10 --seqSys MS 
+#$art -i $reference1  -amp  -o ./normal_with_mutations_S0_R -p -l 121 -f 10 --seqSys MS 
 #######
-$art -i $reference3  -amp  -o ./Complex_Mutations_1_thru_11_large_S0_R -p -l 121 -f 500 --seqSys MS 
+#$art -i $reference1  -amp  -o ./normal_with_mutations_S0_R -p -l 121 -f 10 --seqSys MS 
 
-rm ./Complex_Mutations_1_thru_11_large_S0_R1.aln 
-rm ./Complex_Mutations_1_thru_11_large_S0_R2.aln
+#rm ./normal_with_mutations_S0_R1.aln 
+#rm ./normal_with_mutations_S0_R2.aln
+
+
+$art -i $reference1  -amp  -o ./normal_S0_R -p -l 121 -f 10 --seqSys MS 
+
+rm ./normal_S0_R1.aln 
+rm ./normal_S0_R2.aln
+
+mv normal_S0_R1.fq normal_S0_R1.fastq
+mv normal_S0_R2.fq normal_S0_R2.fastq
 
 
 #######
 ###DEPTH OF 10 TO MAKE REALLY SMALL FILE FOR PURPOSES OF DEBUGGING PIPELINE AS IT IS VERY
 ###FAST TO PROCESS
-#$art -i $reference4  -amp  -o ./Complex_Mutations_1_thru_11_small_S1_R -p -l 121 -f 10 --seqSys MS 
+#$art -i $reference2  -amp  -o ./normal_with_mutations_S1_R -p -l 121 -f 10 --seqSys MS 
 #######
 
-$art -i $reference4  -amp  -o ./Complex_Mutations_1_thru_11_large_S1_R -p -l 121 -f 500 --seqSys MS  
+#$art -i $reference2  -amp  -o ./normal_S1_R -p -l 121 -f  --seqSys MS  
 
-#rm ./FPB_EGFR_deletion_BRAF_snp_S0.sam 
-rm ./Complex_Mutations_1_thru_11_large_S1_R2.aln 
-rm ./Complex_Mutations_1_thru_11_large_S1_R1.aln
+
+#rm ./normal_with_mutations_S1_R1.aln 
+#rm ./normal_with_mutations_S1_R2.aln
+
+
+$art -i $reference2  -amp  -o ./normal_S1_R -p -l 121 -f 10 --seqSys MS  
+
+
+rm ./normal_S1_R1.aln 
+rm ./normal_S1_R2.aln
+
+mv normal_S1_R1.fq normal_S1_R1.fastq
+mv normal_S1_R2.fq normal_S1_R2.fastq
 
 
 

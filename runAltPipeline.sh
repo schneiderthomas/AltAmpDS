@@ -129,7 +129,14 @@ else
      echo "There are no fastq files, therefore, bcl2fastq needs to be run"
      #need to do lane splitting for basespace as they only accept files that are split by lane
      #/usr/local/bin/bcl2fastq --no-lane-splitting &
-     /usr/local/bin/bcl2fastq &
+     input=$(zenity --title="PICK the CMP26 SampleSheet for this run" --file-selection)
+     if [[ "$input" != "${input/ /}" ]]
+    then
+        zenity --info --title="ALT PIPELINE" --text '<span foreground="black" font="16">Sample Sheet Contains Spaces! Rename!</span>'
+        exit
+    fi
+    
+     /usr/local/bin/bcl2fastq --sample-sheet "${input}" &
      wait
      find $search_dir -maxdepth 2 -name "*.fastq*" -not -path "*/Archer_Run*/*" -not -path "*/Sarcoma_Run*/*" -not -path "*/Alt_Alignment*/*" > tmpfilelist.txt
 fi

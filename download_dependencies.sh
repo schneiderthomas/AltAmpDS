@@ -198,8 +198,7 @@ java -jar $DIR/picard/picard.jar  CreateSequenceDictionary R=$DIR/hg19/WholeGeno
 wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.33.zip
 unzip Trimmomatic-0.33.zip
 rm Trimmomatic-0.33.zip
-#install vcflib 
-#already installed with freebayes
+
 
 #download ANNOVAR databases NOTE: this assumes ANNOVAR was downloaded
 cd annovar
